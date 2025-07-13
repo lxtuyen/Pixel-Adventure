@@ -1,20 +1,14 @@
+import 'package:flame/flame.dart';
+import 'package:flame/game.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pixel_adventure/pixel_adventure.dart';
 
 void main() {
-  runApp(const MainApp());
-}
+  PixelAdventure game = PixelAdventure();
+  WidgetsFlutterBinding.ensureInitialized();
+  Flame.device.fullScreen;
+  Flame.device.setLandscape;
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+  runApp(GameWidget(game: kDebugMode? PixelAdventure() : game));
 }
